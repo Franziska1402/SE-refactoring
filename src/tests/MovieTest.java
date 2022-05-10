@@ -1,13 +1,14 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
 class MovieTest {
 
-	@Test
-	void test() {
+	public
+
+	@Test void test() {
 		fail("Not yet implemented");
 	}
 
