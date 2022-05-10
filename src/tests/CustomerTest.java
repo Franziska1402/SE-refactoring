@@ -19,7 +19,7 @@ class CustomerTest {
 	@BeforeEach
 	public void beforeEach() {
 		customer = new Customer("Adam");
-		rentals = new Vector<Rental>();
+		rentals = new Vector<>();
 	}
 
 	@Test
