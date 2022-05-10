@@ -13,13 +13,13 @@ import classes.Rental;
 
 class CustomerTest {
 
-	public Customer customer;
-	public Vector rentals;
+	private Customer customer;
+	private Vector<Rental> rentals;
 
 	@BeforeEach
 	public void beforeEach() {
 		customer = new Customer("Adam");
-		rentals = new Vector();
+		rentals = new Vector<Rental>();
 	}
 
 	@Test

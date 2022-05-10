@@ -9,7 +9,7 @@ import classes.Movie;
 
 class MovieTest {
 
-	public Movie movie;
+	private Movie movie;
 
 	@BeforeEach
 	public void beforeEach() {

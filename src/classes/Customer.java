@@ -5,30 +5,30 @@ import java.util.Vector;
 
 public class Customer {
 	private String name;
-	private Vector rentals = new Vector();
+	private Vector<Rental> rentals = new Vector<Rental>();
 
 	public Customer(String newname) {
 		name = newname;
-	};
+	}
 
 	public void addRental(Rental arg) {
 		rentals.addElement(arg);
-	};
+	}
 
 	public String getName() {
 		return name;
-	};
+	}
 
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
-		Enumeration enum_rentals = rentals.elements();
-		String result = "Rental Record for " + this.getName() + "\n";
-		result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+		Enumeration<Rental> enumRentals = rentals.elements();
+		StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
+		result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
-		while (enum_rentals.hasMoreElements()) {
+		while (enumRentals.hasMoreElements()) {
 			double thisAmount = 0;
-			Rental each = (Rental) enum_rentals.nextElement();
+			Rental each = (Rental) enumRentals.nextElement();
 			// determine amounts for each line
 			thisAmount = amountFor(each);
 			// add frequent renter points
@@ -37,14 +37,14 @@ public class Customer {
 			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
 				frequentRenterPoints++;
 			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t"
-					+ String.valueOf(thisAmount) + "\n";
+			result.append("\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t"
+					+ String.valueOf(thisAmount) + "\n");
 			totalAmount += thisAmount;
 		}
 		// add footer lines
-		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-		return result;
+		result.append("Amount owed is " + String.valueOf(totalAmount) + "\n");
+		result.append("You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points");
+		return result.toString();
 	}
 
 	private double amountFor(Rental each) {
@@ -63,6 +63,8 @@ public class Customer {
 			if (each.getDaysRented() > 3)
 				thisAmount += (each.getDaysRented() - 3) * 1.5;
 			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + each.getMovie().getPriceCode());
 		}
 		return thisAmount;
 	}

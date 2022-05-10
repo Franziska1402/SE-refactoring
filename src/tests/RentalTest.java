@@ -10,8 +10,8 @@ import classes.Rental;
 
 class RentalTest {
 
-	public Rental rental;
-	public Movie movie;
+	private Rental rental;
+	private Movie movie;
 
 	@BeforeEach
 	public void beforeEach() {
