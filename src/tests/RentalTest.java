@@ -15,13 +15,13 @@ class RentalTest {
 
 	@BeforeEach
 	public void beforeEach() {
-		movie = new Movie("Titel", 20);
-		rental = new Rental(movie, 5);
+		movie = new Movie("Titel", Movie.REGULAR);
+		rental = new Rental(movie, 10);
 	}
 
 	@Test
 	public void getDaysRented() {
-		assertEquals(5, rental.getDaysRented());
+		assertEquals(10, rental.getDaysRented());
 	}
 
 	@Test
@@ -29,4 +29,13 @@ class RentalTest {
 		assertEquals(movie, rental.getMovie());
 	}
 
+	@Test
+	public void getFrequentRenterPoints() {
+		assertEquals(1, rental.getFrequentRenterPoints());
+	}
+
+	@Test
+	public void getCharge() {
+		assertEquals(14.0, rental.getCharge(), 0);
+	}
 }

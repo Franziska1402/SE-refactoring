@@ -24,4 +24,9 @@ public class Rental {
 	public double getCharge() {
 		return movie.getCharge(daysRented);
 	}
+
+	@Override
+	public String toString() {
+		return "\t" + movie.getTitle() + "\t" + "\t" + daysRented + "\t" + String.valueOf(getCharge()) + "\n";
+	}
 }
