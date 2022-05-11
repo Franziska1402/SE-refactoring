@@ -41,7 +41,7 @@ class CustomerTest {
 	public void addRental() {
 		int i = rentals.size();
 
-		rentals.addElement(new Rental(new Movie("TITLE", 0), 0));
+		rentals.addElement(new Rental(new Movie("TITLE", Movie.REGULAR), 0));
 		assertEquals(i + 1, rentals.size());
 	}
 }

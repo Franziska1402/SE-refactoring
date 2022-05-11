@@ -13,18 +13,18 @@ class MovieTest {
 
 	@BeforeEach
 	public void beforeEach() {
-		movie = new Movie("Film", 15);
+		movie = new Movie("Film", Movie.CHILDRENS);
 	}
 
 	@Test
 	public void getPriceCode() {
-		assertEquals(15, movie.getPriceCode());
+		assertEquals(2, movie.getPriceCode());
 	}
 
 	@Test
 	public void setPriceCode() {
-		movie.setPriceCode(10);
-		assertEquals(movie.getPriceCode(), 10);
+		movie.setPriceCode(Movie.NEW_RELEASE);
+		assertEquals(movie.getPriceCode(), 1);
 	}
 
 	@Test
