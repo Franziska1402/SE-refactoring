@@ -27,6 +27,6 @@ public class Rental {
 
 	@Override
 	public String toString() {
-		return "\t" + movie.getTitle() + "\t" + "\t" + daysRented + "\t" + String.valueOf(getCharge()) + "\n";
+		return "\t" + movie.getTitle() + "\t" + "\t" + daysRented + "\t" + getCharge() + "\n";
 	}
 }
