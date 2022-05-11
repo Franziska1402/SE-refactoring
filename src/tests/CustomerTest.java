@@ -2,7 +2,8 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,12 +15,12 @@ import classes.Rental;
 class CustomerTest {
 
 	private Customer customer;
-	private Vector<Rental> rentals;
+	private List<Rental> rentals;
 
 	@BeforeEach
 	public void beforeEach() {
 		customer = new Customer("Adam");
-		rentals = new Vector<>();
+		rentals = new ArrayList<>();
 	}
 
 	@Test
@@ -41,7 +42,7 @@ class CustomerTest {
 	public void addRental() {
 		int i = rentals.size();
 
-		rentals.addElement(new Rental(new Movie("TITLE", Movie.REGULAR), 0));
+		rentals.add(new Rental(new Movie("TITLE", Movie.REGULAR), 0));
 		assertEquals(i + 1, rentals.size());
 	}
 }
